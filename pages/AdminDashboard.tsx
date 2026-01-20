@@ -434,6 +434,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ user }) => {
                   )}
                 </div>
               </div>
+              
               <div className="grid grid-cols-2 gap-3 relative z-10">
                 <div className="p-3 bg-slate-950/50 rounded-2xl border border-white/5 flex flex-col">
                   <span className="text-[8px] text-slate-500 uppercase font-black mb-1">Mata Pelajaran</span>
@@ -450,6 +451,30 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ user }) => {
                   </div>
                 </div>
               </div>
+
+              {/* SECTION BARU: Visualisasi Waktu */}
+              <div className="mt-3 p-3 bg-slate-950/50 rounded-2xl border border-white/5 relative z-10">
+                <div className="flex items-center justify-between mb-1">
+                   <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest flex items-center gap-1">
+                      <Clock size={10} /> Waktu KBM
+                   </span>
+                   {isLive && <span className="text-[9px] text-amber-500 font-bold animate-pulse">Sedang Berlangsung</span>}
+                </div>
+                <div className="flex items-center justify-between">
+                   <div className="text-center">
+                      <span className="text-[10px] text-slate-500 block">Mulai</span>
+                      <span className={`text-sm font-mono font-bold ${isLive ? 'text-white' : 'text-slate-400'}`}>{start}</span>
+                   </div>
+                   <div className="flex-1 flex items-center justify-center px-4">
+                       <div className={`h-0.5 w-full ${isLive ? 'bg-amber-500/50' : 'bg-slate-700'}`}></div>
+                   </div>
+                   <div className="text-center">
+                      <span className="text-[10px] text-slate-500 block">Selesai</span>
+                      <span className={`text-sm font-mono font-bold ${isLive ? 'text-white' : 'text-slate-400'}`}>{end}</span>
+                   </div>
+                </div>
+              </div>
+
             </div>
             );
           })

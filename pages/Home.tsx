@@ -7,9 +7,9 @@ import { submitToGoogleSheets, SubmissionPayload } from '../services/api';
 
 interface HomeProps { user: User; }
 
-// School coordinates for SMPN 1 Padarincang
-const SCHOOL_LAT = -6.114196248039071;
-const SCHOOL_LNG = 106.2276108127061;
+// School coordinates for SMPN 1 Padarincang (UPDATED)
+const SCHOOL_LAT = -6.207676212766887;
+const SCHOOL_LNG = 105.97295421490682;
 const ALLOWED_RADIUS_METERS = 50; 
 
 const Home: React.FC<HomeProps> = ({ user }) => {
@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ user }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // DAFTAR KELAS DIPERBAHARUI (A sampai G)
+  // DAFTAR KELAS
   const roomOptions = [
     'VII - A', 'VII - B', 'VII - C', 'VII - D', 'VII - E', 'VII - F', 'VII - G',
     'VIII - A', 'VIII - B', 'VIII - C', 'VIII - D', 'VIII - E', 'VIII - F', 'VIII - G',
@@ -63,7 +63,7 @@ const Home: React.FC<HomeProps> = ({ user }) => {
     return title.includes('guru') || title.includes('pengajar') || title.includes('kepala') || title.includes('pendidik');
   }, [user]);
   
-  // Helper Helper Helper untuk kompresi gambar
+  // Helper untuk kompresi gambar
   const compressImage = (base64Str: string, maxWidth = 480, maxHeight = 640, quality = 0.5) => {
     return new Promise<string>((resolve) => {
       const img = new Image();
