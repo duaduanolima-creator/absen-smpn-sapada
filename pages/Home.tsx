@@ -127,11 +127,10 @@ const Home: React.FC<HomeProps> = ({ user }) => {
 
   const pulangSchedule = useMemo(() => {
     const day = currentTime.getDay(); // 0 = Minggu, 5 = Jumat
-    let targetH = 14;
-    let targetM = 45;
-    if (day === 5) { targetH = 11; targetM = 0; } 
-    else if (day === 4) { targetH = 14; targetM = 10; }
-    else { targetH = 14; targetM = 45; }
+    let targetH = 13;
+    let targetM = 30;
+    if (day === 5) { targetH = 10; targetM = 30; } 
+    else { targetH = 13; targetM = 30; }
     return { h: targetH, m: targetM };
   }, [currentTime]);
 
