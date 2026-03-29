@@ -89,14 +89,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ user }) => {
             if (logIn) status = 'HADIR';
             else if (leaveLog) status = leaveLog.status === 'Sakit' ? 'SAKIT' : 'IZIN';
 
-            // Logika Telat: Jika jam masuk > 07:30
+            // Logika Telat: Jika jam masuk > 07:15
             let isLate = false;
             if (logIn && logIn.timestamp) {
                 const loginDate = new Date(logIn.timestamp);
                 const hour = loginDate.getHours();
                 const minute = loginDate.getMinutes();
-                // Telat jika jam > 7 ATAU (jam == 7 DAN menit > 30)
-                if (hour > 7 || (hour === 7 && minute > 30)) {
+                // Telat jika jam > 7 ATAU (jam == 7 DAN menit > 15)
+                if (hour > 7 || (hour === 7 && minute > 15)) {
                     isLate = true;
                 }
             }
